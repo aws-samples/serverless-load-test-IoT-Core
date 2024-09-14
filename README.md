@@ -8,25 +8,25 @@ Therefore, stress testing is an indispensable step in the evolutionary process o
 ## Solution Introduction
 A typical IoT platform diagram is shown below:
 
-![Overall Solution Architecture](./ConnectedVehicle.jpg)
+![Overall Solution Architecture](./images/ConnectedVehicle.jpg)
 
 We can generally divide the IoT data flow into uplink and downlink. Uplink data usually includes periodic reports of sensor status data, device operational data, etc. Downlink data typically involves control commands, broadcast pushes, etc. The frequency of sending downlink messages is generally not high. In most scenarios, the traffic bottleneck exists in the uplink data, particularly when the number of devices reaches millions or tens of millions. The aggregated message reporting requests can result in peak TPS (Transactions Per Second) exceeding tens of thousands.
 
 ## Get Started
 IoT Core supports different protocols for message publish & subscribe: MQTT, HTTP, MQTT over WebSocket.
 ### HTTP Solution
-![HTTP Lambda Architecture](./loadtest_http_architecture-http.drawio.png)
+![HTTP Lambda Architecture](./images/loadtest_http_architecture-http.drawio.png)
 ### MQTT Solution
-![MQTT Lambda Architecture](./loadtest_http_architecture-mqtt.drawio.png)
+![MQTT Lambda Architecture](./images/loadtest_http_architecture-mqtt.drawio.png)
 
 ## Metrics
 IoT Core has default TPS limits of PublishIn (uplink) and PublishOut (downlink) requests for most regions:
 * PublishIn TPS limit = 20,000/s
 * PublishOut TPS limit = 20,000/s
 ### CloudWatch Request TPS Result
-![CloudWatch](./CloudWatch_PublishInOut_tps.png)
+![CloudWatch](./images/CloudWatch_PublishInOut_tps.png)
 ### InfluxDB Latency Result
-![InfluxDB Latency](./InfluxDB_latency_metrics.png)
+![InfluxDB Latency](./images/InfluxDB_latency_metrics.png)
 
 # Security
 
