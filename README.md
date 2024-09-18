@@ -23,9 +23,22 @@ IoT Core supports different protocols for message publish & subscribe: MQTT, HTT
 IoT Core has default TPS limits of PublishIn (uplink) and PublishOut (downlink) requests for most regions:
 * PublishIn TPS limit = 20,000/s
 * PublishOut TPS limit = 20,000/s
+
+In order to reach higher TPS, customers must: 
+* fill in the questionnaire: https://w.amazon.com/bin/view/AWS/Mobile/IoT/CustomerLoadTesting
+* raise support case in AWS console, at least one month in advance.
+* recommend to conduct load test in regions: IAD, PDX, DUB, FRA.
+* IoT Core service team will review and increase the limit.
+
 ### CloudWatch Request TPS Result
-![CloudWatch](./images/CloudWatch_PublishInOut_tps.png)
+* This is the test result with default limit (20k TPS) PublishIn and PublishOut.
+![CloudWatch-20k TPS](./images/CloudWatch_PublishInOut_tps.png)
+* This is the test result with increased limit (67k TPS) PublishIn and PublishOut.
+![CloudWatch-70k TPS](./images/iot%20core%20limit%20at%2067k%20TPS.png)
 ### InfluxDB Latency Result
+* This shows the MQTT metrics data: 
+    * "connect latency in ns". Most data points are below 50ms.
+    * "pub/sub latency in ns". Most data points are in range 100ms ~ 200ms.
 ![InfluxDB Latency](./images/InfluxDB_latency_metrics.png)
 
 # Security
