@@ -40,6 +40,17 @@ In order to reach higher TPS, customers must:
     * "connect latency in ns". Most data points are below 50ms.
     * "pub/sub latency in ns". Most data points are in range 100ms ~ 200ms.
 ![InfluxDB Latency](./images/InfluxDB_latency_metrics.png)
+### Grafana Latency Result
+* This diagram shows the received message number per second.
+![Grafana PublishOut Success TPS](./images/Grafana_Screenshot_TPS-67k.png)
+
+# Load Test in EC2
+As Lambda has the limit of 15 minitues maximum running time, we need deploy the client simulation script to EC2 or EKS, so as to reach PublishIn/Out TPS > 100k.
+The solution architecture is shown below:
+![EC2 solution Architecture](./images/EC2.drawio.png)
+The CloudWatch Metrics is show below:
+![CloudWatch-1500000clients](./images/1500000clients_results_cloudwatch.png)
+
 
 # Security
 
